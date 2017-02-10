@@ -1,7 +1,11 @@
-package functions;
+package testers;
+
+import functions.FunctionDefinitions;
+import functions.FunctionTester;
 
 public class AddSubtractOverflow extends FunctionTester {
 	
+	// you have to create a new class in main to run the tests
 	public AddSubtractOverflow() {
 		super(
 				// Test vector name
@@ -16,6 +20,7 @@ public class AddSubtractOverflow extends FunctionTester {
 				
 				// number of inputs
 				3,
+				// The function to use
 				FunctionDefinitions.AddSubV
 			);
 	}

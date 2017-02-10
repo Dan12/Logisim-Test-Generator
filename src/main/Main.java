@@ -1,7 +1,7 @@
 package main;
 
-import functions.AddSubtractOverflow;
-import functions.LeftShift;
+import testers.AddSubtractOverflow;
+import testers.LeftShift;
 
 public class Main {	
 	public static void main(String[] args) throws Exception {

@@ -1,5 +1,7 @@
-package functions;
+package testers;
 
+import functions.FunctionDefinitions;
+import functions.FunctionTester;
 import special_vars.Const;
 import special_vars.Iterate;
 import special_vars.Iterate.Type;
