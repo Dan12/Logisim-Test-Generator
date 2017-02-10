@@ -28,33 +28,57 @@ public abstract class FunctionTester {
 		Utils.writeToFile(this);
 	}
 
-	void apply() {
+	private void apply() {
 		this.ioPair.setOutputs(this.func.operation(this.ioPair.inputs));
 	}
 	
+	/**
+	 * @return this tester's name
+	 */
 	public String getName() {
 		return this.name;
 	}
 	
-	public IOPair getIOPair() {
+	private IOPair getIOPair() {
 		return this.ioPair;
 	}
 	
+	/**
+	 * @return this tester's tests
+	 */
 	public String getTests() {
 		return this.testBuilder.toString();
 	}
 	
+	/**
+	 * generate random test cases
+	 * @param num the number of test case to generate
+	 */
 	public void randomCases(int num) {
-		Utils.randomTests(this, num);
+		for(int i = 0; i < num; i++) {
+			int[] inputs = new int[ioPair.inputSize];
+			for(int j = 0; j < inputs.length; j++) {
+				inputs[j] = Utils.randInt(Utils.maxUnsigned(ioPair.labelSizes[j]));
+			}
+			newCase(inputs);
+		}
 	}
 	
+	/**
+	 * generate a new test case with the given inputs
+	 * @param inputs the test case inputs
+	 */
 	public void newCase(int... inputs) {
 		this.getIOPair().setInputs(inputs);
 		this.apply();
 		this.testBuilder.append(Utils.makeTestCase(this.getIOPair()));
 	}
 	
-	// only meant for one or more variables to be iterable
+	/**
+	 * generate new test case based on the special variables.
+	 * Must have one or more iterate variables
+	 * @param vars the variables
+	 */
 	public void newCase(SpecialVariable... vars) {
 		ArrayList<Iterate> iterateOn = new ArrayList<Iterate>();
 		for(int i = 0; i < vars.length; i++) {

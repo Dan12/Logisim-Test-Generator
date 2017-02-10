@@ -36,7 +36,7 @@ public class LeftShift extends FunctionTester {
 		
 		newCase(
 				new Const(0b10011110101),
-				new Iterate(Type.EXP_HEAD), 
+				new Iterate(Type.EXP_HEAD),
 				new Iterate(Type.LINEAR)
 			);
 		

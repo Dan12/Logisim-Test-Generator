@@ -1,5 +1,6 @@
 package main;
 
+import testers.ALUTester;
 import testers.AddSubtractOverflow;
 import testers.LeftShift;
 
@@ -12,6 +13,7 @@ public class Main {
 	public void runMethod() {
 		new LeftShift();
 		new AddSubtractOverflow();
+		new ALUTester();
 	}
 
 }

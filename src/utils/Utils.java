@@ -12,16 +12,6 @@ public class Utils {
 		return (long) (Math.pow(2, bitLength) - 1);
 	}
 	
-	public static void randomTests(FunctionTester func, int num){
-		for(int i = 0; i < num; i++) {
-			int[] inputs = new int[func.getIOPair().inputSize];
-			for(int j = 0; j < inputs.length; j++) {
-				inputs[j] = randInt(maxUnsigned(func.getIOPair().labelSizes[j]));
-			}
-			func.newCase(inputs);
-		}
-	}
-	
 	public static int randInt(long max) {
 		return (int) ((long) (rand.nextDouble()*(max+1)));
 	}
@@ -59,4 +49,28 @@ public class Utils {
 		}
 		return ret+"\n";
 	}
+	
+	// Array extenders
+	// TODO
+	public static int[] append(int[] source, int... elements) {
+		int[] ret = new int[source.length+elements.length];
+		System.arraycopy(source, 0, ret, 0, source.length);
+		System.arraycopy(elements, 0, ret, source.length, elements.length);
+		return ret;
+	}
+	
+	public static int[] subset(int[] source, int start, int finish) {
+		int[] ret = new int[finish-start];
+		System.arraycopy(source, start, ret, 0, ret.length);
+		return ret;
+	}
+	
+	public static int[] fromIndicies(int[] source, int... indicies) {
+		int[] ret = new int[indicies.length];
+		for(int i = 0; i < indicies.length; i++) {
+			ret[i] = source[indicies[i]];
+		}
+		return ret;
+	}
+	
 }

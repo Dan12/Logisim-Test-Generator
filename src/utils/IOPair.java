@@ -1,10 +1,10 @@
 package utils;
 
 public class IOPair {
-	String[] labelNames;
-	int[] labelSizes;
+	public String[] labelNames;
+	public int[] labelSizes;
 	
-	int inputSize;
+	public int inputSize;
 	public int[] inputs;
 	public int[] outputs;
 	
