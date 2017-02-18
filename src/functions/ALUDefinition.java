@@ -22,8 +22,8 @@ public class ALUDefinition {
 			return Utils.append(FunctionDefinitions.RightShift.operation(ipts), 0);
 		} else if(op == 5) {
 			// right shift arth
-			int[] ipts = Utils.append(Utils.fromIndicies(inputs, 1, 3), (inputs[1] >= 0 ? 0 : 1));
-			return Utils.append(FunctionDefinitions.RightShift.operation(ipts), 0);
+			int[] ipts = Utils.append(Utils.fromIndicies(inputs, 1, 3), 0);
+			return Utils.append(FunctionDefinitions.RightShiftArth.operation(ipts), 0);
 		} else if(op == 6 || op == 7) {
 			// subtract
 			int[] ipts = Utils.append(Utils.fromIndicies(inputs, 0, 1), 1);

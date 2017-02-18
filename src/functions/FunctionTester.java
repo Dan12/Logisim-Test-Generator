@@ -74,6 +74,12 @@ public abstract class FunctionTester {
 		this.testBuilder.append(Utils.makeTestCase(this.getIOPair()));
 	}
 	
+	public void newComment(String cmnt) {
+		this.testBuilder.append("# ");
+		this.testBuilder.append(cmnt);
+		this.testBuilder.append("\n");
+	}
+	
 	/**
 	 * generate new test case based on the special variables.
 	 * Must have one or more iterate variables

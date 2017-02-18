@@ -8,6 +8,8 @@ public class Utils {
 	private static Random rand = new Random();
 	private static String FILE_NAME = "test_vector.txt";
 	
+	private static boolean printBinary = false;
+	
 	public static long maxUnsigned(int bitLength) {
 		return (long) (Math.pow(2, bitLength) - 1);
 	}
@@ -19,10 +21,18 @@ public class Utils {
 	public static String makeTestCase(IOPair ioPair) {
 		String ret = "";
 		for(int i = 0; i < ioPair.inputs.length; i++) {
-			ret += ioPair.inputs[i] + " ";
+			if(printBinary) {
+				ret += "0b" + Integer.toBinaryString(ioPair.inputs[i]) + " ";
+			} else {
+				ret += ioPair.inputs[i] + " ";
+			}
 		}
 		for(int i = 0; i < ioPair.outputs.length; i++) {
-			ret += ioPair.outputs[i] + " ";
+			if(printBinary) {
+				ret += "0b" + Integer.toBinaryString(ioPair.outputs[i]) + " ";
+			} else {
+				ret += ioPair.outputs[i] + " ";
+			}
 		}
 		return ret.substring(0, ret.length()-1)+"\n";
 	}

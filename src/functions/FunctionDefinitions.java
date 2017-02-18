@@ -3,6 +3,17 @@ package functions;
 import utils.InOutFunction;
 
 public class FunctionDefinitions {
+	
+	// [A, B, Cin] -> [Sum, V]
+		public static InOutFunction Add = (int[] inputs) -> {
+			int a = inputs[0];
+			int b = inputs[1];
+			int cin = inputs[2];
+			int sum = a + b + cin;
+			int v = ((a >= 0 && b >= 0 && sum < 0) || (a < 0 && b < 0 && sum >= 0) ? 1 : 0);
+			
+			return new int[]{sum, v};
+		};
 
 	// Add Subtract function definition:
 	// [A, B, Subtract] -> [result, v]
@@ -33,7 +44,7 @@ public class FunctionDefinitions {
 	
 	// [B, Sa, Cin] -> [result]
 	public static InOutFunction RightShift = (int[] inputs) -> {
-		int result = inputs[0] >> inputs[1];
+		int result = inputs[0] >>> inputs[1];
 		
 		result |= (int) (inputs[2] == 1 ? (Math.pow(2,32-inputs[1]) - 1) : 0);
 		
@@ -42,7 +53,7 @@ public class FunctionDefinitions {
 	
 	// [B, Sa] -> [result]
 	public static InOutFunction RightShiftArth = (int[] inputs) -> {
-		return new int[]{inputs[0] >>> inputs[1]};
+		return new int[]{inputs[0] >> inputs[1]};
 	};
 	
 	// [A, B] -> [result]
